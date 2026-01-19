@@ -1,0 +1,24 @@
+{
+  "name": "moad-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio personnel de Moad Elhoussaini - Technicien d'Informatique & Développeur Web",
+  "main": "frontend/index.html",
+  "scripts": {
+    "start": "npx http-server frontend -p 3000 -o",
+    "dev": "npx live-server frontend --port=3000",
+    "build": "echo 'Building portfolio...' && npm run minify",
+    "minify": "echo 'Minification complete'"
+  },
+  "keywords": [
+    "portfolio",
+    "web-development",
+    "moad-elhoussaini",
+    "frontend"
+  ],
+  "author": "Moad Elhoussaini <moadelhoussaini2@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  }
+}

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Moad Elhoussaini - Technicien d'Informatique | Développeur Web">
+    <title>Moad Elhoussaini | Développeur Web & Technicien Informatique</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">ME</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">À Propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Compétences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Bonjour, je suis <span class="gradient-text">Moad Elhoussaini</span>
+                </h1>
+                <h2 class="hero-subtitle">Technicien d'Informatique & Développeur Web</h2>
+                <p class="hero-description">
+                    Jeune professionnel motivé et ambitieux, spécialisé en développement web, 
+                    ingénierie backend et support technique. Passionné par la création de 
+                    plateformes numériques rapides, efficaces et conviviales.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                </div>
+                <div class="hero-social">
+                    <a href="mailto:moadelhoussaini2@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">À Propos de Moi</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Qui suis-je ?</h3>
+                    <p>
+                        Jeune professionnel dans la vingtaine, je suis à la recherche d'un poste à temps plein 
+                        en développement web, ingénierie backend ou support technique. Polyglotte et expérimenté 
+                        dans des projets logiciels pratiques, je souhaite intégrer une équipe dynamique.
+                    </p>
+                    <p>
+                        Ma mission est de créer des plateformes numériques rapides et intuitives afin d'améliorer 
+                        l'expérience utilisateur et d'optimiser la performance des entreprises.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Localisation</strong>
+                                <p>H3L 2C8, Montréal</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Téléphone</strong>
+                                <p>(438) 364 0807</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>moadelhoussaini2@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-education">
+                    <h3><i class="fas fa-graduation-cap"></i> Formation</h3>
+                    <div class="education-card">
+                        <div class="edu-header">
+                            <h4>Diplôme d'études collégiales (DEC)</h4>
+                            <span class="edu-date">2023 - 2025</span>
+                        </div>
+                        <p class="edu-program">Techniques de l'informatique</p>
+                        <p class="edu-school">Cégep de Montréal, Montréal</p>
+                    </div>
+                    <div class="education-card">
+                        <div class="edu-header">
+                            <h4>Formation Supplémentaire</h4>
+                        </div>
+                        <p class="edu-school">Institut Teccart</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mes Projets</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">Découvrez quelques-uns de mes projets récents</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Site E-commerce de Boissons Énergétiques</h3>
+                    <p>Plateforme en ligne complète pour commander différentes marques de boissons énergétiques avec système de paiement intégré.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="project-card featured">
+                    <div class="project-badge">Featured</div>
+                    <div class="project-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>MIBR Auto-Detection (IA Images)</h3>
+                    <p>Outil de reconnaissance d'images automatisé utilisant l'intelligence artificielle pour la détection et classification d'objets.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">IA/ML</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Site de Bibliothèque en Ligne</h3>
+                    <p>Système de gestion et d'emprunt de livres avec base de données relationnelle et interface utilisateur intuitive.</p>
+                    <div class="project-tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Application de Livraison Android</h3>
+                    <p>Application mobile de livraison avec système de suivi en temps réel et gestion de base de données.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Android</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Application Calculatrice Windows</h3>
+                    <p>Application desktop développée avec une interface moderne et des fonctionnalités avancées de calcul.</p>
+                    <div class="project-tags">
+                        <span class="tag">C#</span>
+                        <span class="tag">WPF</span>
+                        <span class="tag">Windows</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Système IoT: Contrôle Intelligent LED & Raspberry Pi</h3>
+                    <p>Projet de périphériques techniques: Communication en temps réel entre Raspberry Pi, bouton interactif et système d'éclairage LED automatisé.</p>
+                    <div class="project-tags">
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">GPIO</span>
+                        <span class="tag">IoT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Compétences Techniques</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Informatique & Réseaux</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-windows"></i>
+                            <span>Windows 10/11</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-windows"></i>
+                            <span>Windows Server</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-ubuntu"></i>
+                            <span>Ubuntu</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-apple"></i>
+                            <span>macOS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-network-wired"></i>
+                            <span>TCP/IP & DNS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>VPN & Pare-feux</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-sitemap"></i>
+                            <span>Active Directory</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Office 365</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>VMware & Hyper-V</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>ServiceNow & Jira</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-terminal"></i>
+                            <span>PowerShell & Bash</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-lock"></i>
+                            <span>MFA & Sécurité</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Azure</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-google"></i>
+                            <span>Google Workspace</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programmation & Développement Web</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Responsive Design</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-object-group"></i>
+                            <span>POO</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-github"></i>
+                            <span>Git/GitHub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-database"></i>
+                        <h3>Bases de Données & API</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQLite</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>API REST</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Conception BDD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Méthodologies & Outils</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Agile</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Gestion de version</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-mobile"></i>
+                            <span>Développement Mobile</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-users"></i>
+                            <span>Travail collaboratif</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Compétences Interpersonnelles</h3>
+                    </div>
+                    <div class="soft-skills">
+                        <span class="soft-skill">Communication</span>
+                        <span class="soft-skill">Travail d'équipe</span>
+                        <span class="soft-skill">Résolution de problèmes</span>
+                        <span class="soft-skill">Adaptabilité</span>
+                        <span class="soft-skill">Apprentissage rapide</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contactez-moi</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">N'hésitez pas à me contacter pour toute opportunité ou collaboration</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <a href="mailto:moadelhoussaini2@gmail.com">moadelhoussaini2@gmail.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Téléphone</h3>
+                        <a href="tel:+14383640807">(438) 364 0807</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Localisation</h3>
+                        <p>H3L 2C8, Montréal, QC</p>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Sujet" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            Envoyer le message
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Moad Elhoussaini</h3>
+                    <p>Technicien d'Informatique & Développeur Web</p>
+                </div>
+                <div class="footer-social">
+                    <a href="mailto:moadelhoussaini2@gmail.com" class="footer-social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="footer-social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Moad Elhoussaini. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
