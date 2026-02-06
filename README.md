@@ -4,29 +4,40 @@ Portfolio personnel moderne et responsive présentant mes compétences, projets 
 
 ## 🚀 Caractéristiques
 
-- **Design Moderne** : Interface élégante avec animations fluides et effets visuels
+- **Design Moderne** : Thème sombre avec effets néon et animations fluides
 - **Responsive** : Compatible avec tous les appareils (mobile, tablette, desktop)
 - **Performance** : Code optimisé pour un chargement rapide
-- **Interactif** : Formulaire de contact et navigation dynamique
+- **Interactif** : Formulaire de contact avec backend API (optionnel)
 - **Accessible** : Conçu selon les bonnes pratiques d'accessibilité
+- **Effets spéciaux** : Animations sur les compétences, cartes 3D, particules
 
 ## 📋 Sections
 
-1. **Accueil** : Présentation avec appel à l'action
-2. **À Propos** : Informations personnelles et formation
-3. **Projets** : Portfolio de projets réalisés
-4. **Compétences** : Technologies et compétences techniques
+1. **Accueil** : Présentation avec fond étoilé animé
+2. **À Propos** : Informations personnelles, formation et éducation
+3. **Projets** : Projets académiques et personnels
+4. **Compétences** : Technologies organisées par catégories (IT, Programmation, Databases, APIs, Créatif, Hobbies)
 5. **Contact** : Formulaire et informations de contact
 
 ## 🛠️ Technologies Utilisées
 
+### Frontend
 - HTML5
-- CSS3 (avec variables CSS et animations)
-- JavaScript (Vanilla JS)
-- Font Awesome (icônes)
+- CSS3 (Animations, Flexbox, Grid, Glassmorphism)
+- JavaScript (Vanilla - Intersection Observer, Particles, 3D Effects)
+- Font Awesome 6.4.0 (Icônes)
 - Google Fonts (Inter)
 
+### Backend (Optionnel)
+- Node.js
+- Express.js
+- Nodemailer (Envoi d'emails)
+- CORS
+- dotenv (Configuration)
+
 ## 📦 Installation
+
+### Frontend uniquement
 
 1. Cloner le repository :
 ```bash
@@ -34,17 +45,49 @@ git clone https://github.com/votre-username/portfolio.git
 cd portfolio
 ```
 
-2. Installer les dépendances (optionnel, pour le serveur de développement) :
-```bash
-npm install
-```
-
-3. Lancer le serveur de développement :
+2. Lancer le serveur de développement :
 ```bash
 npm start
 ```
 
 Ou simplement ouvrir `frontend/index.html` dans votre navigateur.
+
+### Avec Backend
+
+1. Installer les dépendances du backend :
+```bash
+npm run backend:install
+```
+
+2. Configurer les variables d'environnement :
+```bash
+cd backend
+cp .env.example .env
+```
+
+3. Éditer `.env` avec vos informations email (voir [backend/README.md](backend/README.md))
+
+4. Lancer le backend :
+```bash
+npm run backend
+```
+
+5. Activer le backend dans [frontend/script.js](frontend/script.js) :
+```javascript
+const USE_BACKEND = true;
+```
+
+## 🔧 Développement
+
+Frontend avec rechargement automatique :
+```bash
+npm run dev
+```
+
+Backend en mode développement :
+```bash
+npm run backend:dev
+```
 
 ## 🌐 Déploiement
 

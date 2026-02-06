@@ -7,13 +7,17 @@
     "start": "npx http-server frontend -p 3000 -o",
     "dev": "npx live-server frontend --port=3000",
     "build": "echo 'Building portfolio...' && npm run minify",
-    "minify": "echo 'Minification complete'"
+    "minify": "echo 'Minification complete'",
+    "backend": "cd backend && npm start",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:install": "cd backend && npm install"
   },
   "keywords": [
     "portfolio",
     "web-development",
     "moad-elhoussaini",
-    "frontend"
+    "frontend",
+    "full-stack"
   ],
   "author": "Moad Elhoussaini <moadelhoussaini2@gmail.com>",
   "license": "MIT",

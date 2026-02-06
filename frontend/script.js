@@ -94,16 +94,111 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all project cards, skill categories, and other animated elements
-const animatedElements = document.querySelectorAll('.project-card, .skill-category, .contact-card, .education-card, .about-text, .about-education');
+const animatedElements = document.querySelectorAll('.project-card, .skill-category, .contact-card, .education-card, .about-text, .about-education, .hobby-card');
 animatedElements.forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
 });
 
 // ============================================
+// Special Effects for Programming Skills
+// ============================================
+const programmingSkills = document.querySelectorAll('.programming-skills .skill-item.special-effect');
+
+programmingSkills.forEach((skill, index) => {
+    // Staggered entrance animation
+    skill.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.1}s`;
+    
+    // Add particle effect on hover
+    skill.addEventListener('mouseenter', function() {
+        createParticles(this);
+    });
+});
+
+function createParticles(element) {
+    const colors = ['#667eea', '#764ba2', '#f093fb'];
+    
+    for (let i = 0; i < 5; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.cssText = `
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: ${colors[Math.floor(Math.random() * colors.length)]};
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+        `;
+        
+        const rect = element.getBoundingClientRect();
+        particle.style.left = rect.left + rect.width / 2 + 'px';
+        particle.style.top = rect.top + rect.height / 2 + 'px';
+        
+        document.body.appendChild(particle);
+        
+        const angle = (Math.PI * 2 * i) / 5;
+        const velocity = 2;
+        const vx = Math.cos(angle) * velocity;
+        const vy = Math.sin(angle) * velocity;
+        
+        let posX = rect.left + rect.width / 2;
+        let posY = rect.top + rect.height / 2;
+        let opacity = 1;
+        
+        const animate = () => {
+            posX += vx;
+            posY += vy;
+            opacity -= 0.02;
+            
+            particle.style.left = posX + 'px';
+            particle.style.top = posY + 'px';
+            particle.style.opacity = opacity;
+            
+            if (opacity > 0) {
+                requestAnimationFrame(animate);
+            } else {
+                particle.remove();
+            }
+        };
+        
+        requestAnimationFrame(animate);
+    }
+}
+
+// ============================================
+// Hobby Cards Tilt Effect
+// ============================================
+const hobbyCards = document.querySelectorAll('.hobby-card');
+
+hobbyCards.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        this.style.transform = `translateY(-10px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) perspective(1000px) rotateX(0) rotateY(0)';
+    });
+});
+
+// ============================================
 // Contact Form Handling
 // ============================================
 const contactForm = document.getElementById('contact-form');
+
+// Configuration - Set to true to use backend API, false for demo mode
+const USE_BACKEND = false;
+const API_URL = 'http://localhost:3000/api/contact';
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -123,8 +218,25 @@ contactForm.addEventListener('submit', async (e) => {
     submitButton.disabled = true;
     
     try {
-        // Simulate form submission (replace with actual API call)
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        if (USE_BACKEND) {
+            // Use actual backend API
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || 'Erreur lors de l\'envoi');
+            }
+        } else {
+            // Demo mode - simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+        }
         
         // Show success message
         submitButton.innerHTML = '<i class="fas fa-check"></i> Message envoyé!';
