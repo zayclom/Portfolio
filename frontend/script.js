@@ -192,86 +192,6 @@ hobbyCards.forEach(card => {
 });
 
 // ============================================
-// Contact Form Handling
-// ============================================
-const contactForm = document.getElementById('contact-form');
-
-// Configuration - Set to true to use backend API, false for demo mode
-const USE_BACKEND = false;
-const API_URL = 'http://localhost:3000/api/contact';
-
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    const submitButton = contactForm.querySelector('.btn-submit');
-    const originalText = submitButton.innerHTML;
-    
-    // Show loading state
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-    submitButton.disabled = true;
-    
-    try {
-        if (USE_BACKEND) {
-            // Use actual backend API
-            const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-            
-            const result = await response.json();
-            
-            if (!response.ok || !result.success) {
-                throw new Error(result.message || 'Erreur lors de l\'envoi');
-            }
-        } else {
-            // Demo mode - simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1500));
-        }
-        
-        // Show success message
-        submitButton.innerHTML = '<i class="fas fa-check"></i> Message envoyé!';
-        submitButton.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-        
-        // Reset form
-        contactForm.reset();
-        
-        // Show success notification
-        showNotification('Message envoyé avec succès!', 'success');
-        
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-            submitButton.style.background = '';
-        }, 3000);
-        
-    } catch (error) {
-        // Show error message
-        submitButton.innerHTML = '<i class="fas fa-times"></i> Erreur';
-        submitButton.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
-        
-        showNotification('Erreur lors de l\'envoi du message', 'error');
-        
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-            submitButton.style.background = '';
-        }, 3000);
-    }
-});
-
-// ============================================
 // Notification System
 // ============================================
 function showNotification(message, type = 'success') {
@@ -512,9 +432,134 @@ const createCursorTrail = () => {
 // createCursorTrail();
 
 // ============================================
+// Interactive Projects Functionality
+// ============================================
+const interactiveProjects = document.querySelectorAll('.interactive-project');
+
+// Project URLs mapping
+const projectUrls = {
+    'competitive-games': '#',  // Add your actual project URLs here
+    'guess-trick': '#',
+    'would-you-rather': '#',
+    'environmental': '#',
+    'boycott': '#',
+    'tierlist': '#',
+    'calculator': '#',
+    'guitar': '#',
+    'munchies': '#'
+};
+
+// Add click handlers
+interactiveProjects.forEach(project => {
+    const projectId = project.getAttribute('data-project');
+    
+    // Click event
+    project.addEventListener('click', () => {
+        const url = projectUrls[projectId];
+        if (url && url !== '#') {
+            window.open(url, '_blank');
+        } else {
+            // Show a notification that the project is coming soon
+            showProjectNotification(project);
+        }
+    });
+    
+    // Mouse tracking for glow effect
+    project.addEventListener('mousemove', (e) => {
+        const rect = project.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        project.style.setProperty('--x', x + '%');
+        project.style.setProperty('--y', y + '%');
+    });
+    
+    // Reset on mouse leave
+    project.addEventListener('mouseleave', () => {
+        project.style.setProperty('--x', '50%');
+        project.style.setProperty('--y', '50%');
+    });
+});
+
+// Show notification function
+function showProjectNotification(project) {
+    const projectName = project.querySelector('h3').textContent;
+    const lang = currentLang || 'en';
+    const comingSoonText = translations[lang].notificationComingSoon;
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'project-notification';
+    notification.innerHTML = `
+        <i class="fas fa-info-circle"></i>
+        <span>${projectName} - ${comingSoonText}</span>
+    `;
+    
+    // Add to body
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Add notification styles dynamically
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    .project-notification {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(135deg, rgba(0, 245, 255, 0.95) 0%, rgba(139, 92, 246, 0.95) 100%);
+        color: var(--bg-dark);
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 245, 255, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        transform: translateX(400px);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 10000;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .project-notification.show {
+        transform: translateX(0);
+    }
+    
+    .project-notification i {
+        font-size: 1.25rem;
+    }
+    
+    @media (max-width: 768px) {
+        .project-notification {
+            bottom: 1rem;
+            right: 1rem;
+            left: 1rem;
+            transform: translateY(200px);
+        }
+        
+        .project-notification.show {
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(notificationStyles);
+
+// ============================================
 // Console Easter Egg
 // ============================================
-console.log('%c👋 Bonjour!', 'font-size: 20px; font-weight: bold; color: #667eea;');
-console.log('%cVous êtes curieux? J\'aime ça! 🚀', 'font-size: 14px; color: #764ba2;');
-console.log('%cCe portfolio a été créé avec ❤️ par Moad Elhoussaini', 'font-size: 12px; color: #4a5568;');
-console.log('%cContactez-moi: moadelhoussaini2@gmail.com', 'font-size: 12px; color: #667eea; font-weight: bold;');
+console.log('%c👋 Hello!', 'font-size: 20px; font-weight: bold; color: #667eea;');
+console.log('%cYou\'re curious? I like that! 🚀', 'font-size: 14px; color: #764ba2;');
+console.log('%cThis portfolio was created with ❤️ by Moad Elhoussaini', 'font-size: 12px; color: #4a5568;');
+console.log('%cContact me: moadelhoussaini2@gmail.com', 'font-size: 12px; color: #667eea; font-weight: bold;');
