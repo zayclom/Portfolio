@@ -775,6 +775,34 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.dev-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.9), rgba(255, 100, 0, 0.9));
+    backdrop-filter: blur(10px);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    border: 1px solid rgba(255, 200, 100, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    animation: devPulse 2s ease-in-out infinite;
+    box-shadow: 0 2px 10px rgba(255, 140, 0, 0.3);
+}
+
+.dev-badge i {
+    margin-right: 4px;
+}
+
+@keyframes devPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.75; }
+}
+
 .project-icon {
     width: 70px;
     height: 70px;
