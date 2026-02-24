@@ -374,6 +374,20 @@ body {
     box-shadow: 0 0 30px rgba(0, 245, 255, 0.6);
 }
 
+.btn-cv {
+    background: transparent;
+    color: #a855f7;
+    border: 2px solid #a855f7;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.btn-cv:hover {
+    background: #a855f7;
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}
+
 .hero-social {
     display: flex;
     gap: 1rem;
